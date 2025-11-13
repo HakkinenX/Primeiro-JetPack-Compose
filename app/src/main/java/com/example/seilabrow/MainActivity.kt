@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.seilabrow.ui.theme.SeilaBrowTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,32 +27,33 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SeilaBrowTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+
                 }
             }
         }
     }
+
+@Composable
+fun GreetingText(modifier: Modifier = Modifier, mensagem: String){
+    Text(
+
+        text = mensagem,
+            color = Color.Red,
+        fontSize = 100.sp,
+        lineHeight = 70.sp
+
+
+    )
 }
 
+
+@Preview(showBackground = true,)
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Surface (color = Color.Red) {
-        Text(
-            text = "Hello $name!",
-            modifier = modifier.padding(24.dp)
-        )
-    }
-    }
 
 
-@Preview(showBackground = true)
-@Composable
+
 fun GreetingPreview() {
     SeilaBrowTheme {
-        Greeting("Seila brow")
+        GreetingText(mensagem = "Feliz Aniversário")
     }
 }
