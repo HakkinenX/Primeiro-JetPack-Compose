@@ -3,10 +3,13 @@ package com.example.seilabrow
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -28,7 +31,9 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.background,
+
+
                 ) {
                 }
             }
@@ -41,19 +46,31 @@ fun GreetingText(mensagem: String, from: String, modifier: Modifier = Modifier) 
         verticalArrangement = Arrangement.Center,
         modifier = modifier
     ) {
+
         Text(
             text = mensagem,
             fontSize = 100.sp,
             lineHeight = 116.sp,
             textAlign = TextAlign.Center
+
         )
         Text(
             text = from,
             fontSize = 36.sp,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(16.dp).background(Color.Blue).padding(10.dp)
                 .align(alignment = Alignment.End)
         )
+        Button(
+            onClick = {},
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.Black,
+                contentColor = Color.White
+            ),
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Text("Pressione aqui")
+        }
     }
 }
 @Preview(showBackground = true,)
